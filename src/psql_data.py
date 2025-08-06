@@ -6,8 +6,8 @@ from typing import TYPE_CHECKING
 
 import pandas as pd
 
-from .db import create_service
-from .db.types import CallReportLog
+from db import create_service
+from db.types import CallReportLog
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
@@ -89,7 +89,7 @@ def format_logs(src_logs: Iterable[Path], stage_logs: Path) -> list[CallReportLo
     return dtos
 
 
-def sync(dtos: list[CallReportLog] | None) -> bool:
+def sync_logs(dtos: list[CallReportLog] | None) -> bool:
     with create_service() as dbs:
 
         if not dtos:

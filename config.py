@@ -26,8 +26,8 @@ SCREENSHOTS_PATH = Path("./screenshots")
 SITECACHE_PATH = Path("./sitecache.json")
 
 #sync_logs config
-src_logs = Path("./src_logs/")
-stage_logs = Path("./stage_logs/")
+src_logs = Path("./logs/xls/")
+stage_logs = Path("./logs/csv/")
 
 #db config
 DB_USER = os.environ["DB_USER"]

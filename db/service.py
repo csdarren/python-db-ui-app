@@ -14,9 +14,9 @@ if TYPE_CHECKING:
 
     from .types import CallReportLog, CallReportRep
 
-import queries
-
 import config
+
+from . import queries
 
 logger = logging.getLogger(__name__)
 

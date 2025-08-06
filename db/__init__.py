@@ -1,4 +1,4 @@
-from . import dbtypes
+from . import types
 from .service import create_service
 
-__all__ = ["create_service", "dbtypes"]
+__all__ = ["create_service", "types"]
