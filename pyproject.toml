@@ -1,0 +1,55 @@
+[project]
+name = "callreport_logs"
+version = "0.0.1"
+requires-python = ">=3.13"
+description = "Automatically downloads and syncs the logs for phone calls made by the sales team"
+dependencies = [
+    "psycopg_pool>=3.2.6",
+    "psycopg[binary]>=3.2.9",
+    "dotenv>=0.9.9",
+    "pandas==2.3.1",
+    "openpyxl==3.1.5",
+    "msgspec==0.19.0",
+    "playwright==1.52.0",
+    "xlrd==2.0.1",
+   
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.uv]
+required-version = "==0.8.4"
+
+[tool.ruff]
+line-length = 125
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN204", # flake8-annotations(missing-return-type-special-method): general disagree
+    "ANN401", # flake8-annotations(any-type): general disagree
+    "COM812", # flake8-commas(missing-trailing-comma): formatter conflicts
+    "D",      # pydocstyle: not doc'ing
+    "FBT",    # flake8-boolean-trap: general disagree
+    "INP",    # flake8-no-pep420: general disagree
+    "NPY",    # NumPy-specific rules: not numpy
+    "PD",     # pandas-vet: not pandas
+    "TD",     # flake8-todos: annoying
+    "TID252", # flake8-tidy-imports(relative-imports): general disagree
+    "F821",   # removed, duplicate as pyright
+    "ARG002", # removed, duplicate as pyright
+    "EXE002", # removed, not even sure tf dis do
+]
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
+
+[tool.ruff.lint.per-file-ignores]
+"test/**/test_*.py" = [
+    "ANN201", # flake8-annotations(missing-return-type-undocumented-public-function): not helpful
+    "S101",   # flake8-bandit(assert): not helpful
+]
+"__init__.py" = [
+    "F403", # Pyflakes(undefined-local-with-import-star): star imports personal pref in init files
+]
